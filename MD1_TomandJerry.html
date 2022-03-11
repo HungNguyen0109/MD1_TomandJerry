@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tom and Jerry</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class Animal {
+        constructor(name,weight,speed,say) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.say = say;
+        }
+        getName() {
+            return this.name;
+        }
+        setName(name) {
+            this.name = name;
+        }
+        getWeight() {
+            return this.weight;
+        }
+        setWeight(weight) {
+            this.weight = weight;
+        }
+        getSpeed() {
+            return this.speed;
+        }
+        setSpeed(speed) {
+            this.speed = speed;
+        }
+        getSay() {
+            return this.say;
+        }
+        setSay(say) {
+            this.say = say;
+        }
+    }
+
+    class Rat extends Animal {
+        constructor(name, weight, speed, say, status) {
+            super(name, weight, speed, say);
+            this.status = status;
+        }
+        getStatus() {
+            if (this.status) {
+                console.log(" Jerry: Ối dồi ôi chết mẹ tôi rồi!!! Chít Chít!!!")
+            } else {
+                console.log(" Ngọn cỏ ven đường thôi mà, làm sao với được mây :V")
+            }
+            return this.status;
+        }
+        setStatus(status) {
+            this.status = status;
+        }
+    }
+
+    class Cat extends Animal{
+        constructor(name, weight, speed, say) {
+            super(name, weight, speed, say);
+        }
+        catchRat(mouse) {
+            if(super.getSpeed() > mouse.getSpeed() ) {
+                console.log("Chết nhé con rai :))")
+                mouse.setStatus(true);
+            } else {
+                console.log("Ngọn cỏ bất lực r")
+            }
+        }
+        eatMouse(mouse) {
+            if(mouse.getStatus()) {
+                super.setWeight(super.getWeight() + mouse.getWeight());
+                console.log("Đây là tao khi hốc xong con chuột kia : " + super.getWeight())
+            }
+            else {
+                console.log("Nay móm rồi")
+            }
+        }
+    }
+
+    let Tom = new Cat('Tom',5,40,'Mewmew');
+    let Jerry = new Rat('Jerry',1.3,10,'chít chít',false);
+
+</script>
